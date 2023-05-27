@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de IMC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: thistle;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de IMC</h1>
+    <label for="peso">Peso (kg):</label>
+    <input id="peso" type="number" placeholder="Insira o seu peso">
+
+    <label for="altura">Altura (cm):</label>
+    <input id="altura" type="number" placeholder="Insira a sua altura">
+
+    <button onclick="calcularIMC()">Calcular</button>
+
+    <div class="result" id="resultado"></div>
+  </div>
+
+  <div class="result" id="resultado"></div>
+<div class="result" id="classificacaoObesidade"></div>
+
+
+  <script>
+   function calcularIMC() {
+  var peso = parseFloat(document.getElementById("peso").value);
+  var altura = parseFloat(document.getElementById("altura").value) / 100; // Converter para metros
+
+  if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+    document.getElementById("resultado").textContent = "Por favor, insira valores válidos.";
+    document.getElementById("classificacaoObesidade").textContent = "";
+    document.getElementById("resultado").style.color = ""; // Limpar a cor do resultado
+    return;
+  }
+
+  var imc = peso / (altura * altura);
+        
+  var resultado = "";
+  if (imc < 18.5) {
+    resultado = "Abaixo do peso";
+  } else if (imc < 25) {
+    resultado = "Peso normal";
+  } else if (imc < 30) {
+    resultado = "Sobrepeso";
+  } else if (imc < 35) {
+    resultado = "Obesidade Grau I";
+  } else if (imc < 40) {
+    resultado = "Obesidade Grau II";
+  } else {
+    resultado = "Obesidade Grau III";
+  }
+
+  document.getElementById("resultado").textContent = "Seu IMC: " + imc.toFixed(2) + " - " + resultado;
+
+  // Aplicar alerta de cores
+  if (imc < 18.5) {
+    document.getElementById("resultado").style.color = "orange";
+  } else if (imc < 25) {
+    document.getElementById("resultado").style.color = "green";
+  } else if (imc < 30) {
+    document.getElementById("resultado").style.color = "orange";
+  } else {
+    document.getElementById("resultado").style.color = "red";
+  }
+}
+
+
+  </script>
+  <a href="index.html"> Retornar.</a>
+</body>
+</html>

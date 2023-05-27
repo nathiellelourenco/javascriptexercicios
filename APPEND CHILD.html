@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <body>
+        <h1>Elemento ao objeto</h1>
+       
+        <ul id="minhaLista">
+          <li>Café</li>
+          <li>Chá</li>
+        </ul>
+        <input type="text" id="listaInput" placeholder="Digite aqui">
+  <button onclick="adicionarItem()">Adicionar</button>
+  
+        
+        <p>Clique em "Adicionar" para inserir um novo item:</p>
+        
+</head>
+<body>
+    <title>Adicionar itens à lista</title>
+</head>
+
+  
+  <script>
+    function adicionarItem() {
+    
+      var item = document.getElementById("listaInput").value;
+
+      if (item !== "") {
+        var lista = document.getElementById("minhaLista");
+
+        var novoItem = document.createElement("li");
+
+        novoItem.innerHTML = item;
+
+        lista.appendChild(novoItem);
+
+        document.getElementById("listaInput").value = "";
+      }
+    }
+    
+    
+  </script>
+</body> 
+<body>
+  
+    <label>
+      <input type="radio" name="cores" value="red"> Vermelho
+    </label>
+    <label>
+      <input type="radio" name="cores" value="blue"> Azul
+    </label>
+    <label>
+      <input type="radio" name="cores" value="green"> Verde
+    </label>
+  
+    <script>
+      function adicionarItem() {
+      
+        var item = document.getElementById("listaInput").value;
+
+        var cor = document.querySelector('input[name="cores"]:checked').value;
+  
+        if (item !== "") {
+          var lista = document.getElementById("minhaLista");
+  
+          var novoItem = document.createElement("li");
+  
+          novoItem.innerHTML = item;
+          novoItem.style.color = cor;
+  
+          lista.appendChild(novoItem);
+  
+          document.getElementById("listaInput").value = "";
+        }
+      }
+    </script>
+    <br>
+    <a href="index.html"> Retornar.</a>
+  </body>
+</html>

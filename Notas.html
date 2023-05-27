@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <table border="8">
+
+         <style>
+           body {
+             display:flex;
+             justify-content: center;
+             align-items: center;
+            
+             height: 100vh;
+             background-color:rgba(40, 13, 137, 0.348);
+           }
+       
+           
+       
+           .resultado {
+             margin-top: 20px;
+             font-weight: bold;
+           }
+       
+           .aprovado {
+             color: green;
+           }
+       
+           .reprovado {
+             color: red;
+           }
+         </style>
+       
+   <body style="background-color: rgb(216, 191, 211);">
+      
+         <tr>
+            
+            <td>
+               <h1>Notas</h1>
+               <title>Padrões Web</title>
+               Primeira nota <input id="nota1" type="number"> <br />
+               Segunda  nota <input id="nota2" type="number"> <br />
+
+               <button onclick="media()">Calcular Média</button>
+               <div id="resultado" class="resultado"></div>
+
+               <script type="text/javascript">
+
+                  function media(){
+					  var nota1 = parseFloat(document.getElementById("nota1").value);
+					  var nota2 = parseFloat(document.getElementById("nota2").value);
+					  
+					  var media = (nota1 + nota2)/2 ;
+					  
+					  var resultadoe = document.getElementById("resultado");
+					  
+					  resultadoe.textContent = "Sua média foi: " + media.toFixed(2);
+					  
+					  if(media >= 6) {
+						resultadoe.className = "resultado aprovado";
+						resultadoe.textContent += " (Aprovado)";
+					  
+					  }else if (media < 6) {
+						resultadoe.className = "resultado reprovado";
+						resultadoe.textContent += " (Reprovado)";    
+					  }
+                  }
+               </script>
+               <a href="index.html"> Retornar.</a>
+      </table>
+      </tr> </td>
+      
+      </head>
+      
+   </body>
+</html>
