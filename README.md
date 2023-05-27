@@ -1,1 +1,3 @@
 # javascriptexercicios
+
+INTEGRANTES: GRACIELE TORRES E NATHIELLE LOURENÇO.
